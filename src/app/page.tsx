@@ -1,7 +1,23 @@
+import Hero from "@/components/Hero";
+import Services from "@/components/Services";
+import CaseStudy from "@/components/CaseStudy";
+import Clients from "@/components/Clients";
+import Testimonials from "@/components/Testimonials";
+import Process from "@/components/Process";
+import Team from "@/components/Team";
+import FinalCTA from "@/components/FinalCTA";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-black">
-      <h1 className="text-4xl font-bold text-white">Hello World</h1>
+    <main>
+      <Hero />
+      <Services />
+      <CaseStudy />
+      <Clients />
+      <Process />
+      <Testimonials />
+      <Team />
+      <FinalCTA />
     </main>
   );
 }
