@@ -1,31 +1,33 @@
 "use client";
 
+import { MessageSquare, Compass, Code2, Rocket } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
+import { DottedSurface } from "@/components/ui/dotted-surface";
 
 const steps = [
   {
+    icon: MessageSquare,
     number: "01",
-    title: "Descoberta",
-    description:
-      "Mergulhamos fundo na sua marca, mercado e objetivos. Entrevistas com stakeholders, auditorias competitivas e uma imersão completa para entender o que você está construindo — e por quê isso importa.",
+    title: "Conversa",
+    description: "Você conta o desafio. A gente escuta de verdade.",
   },
   {
+    icon: Compass,
     number: "02",
     title: "Estratégia",
-    description:
-      "Mapeamos a direção criativa e o roadmap. Frameworks de posicionamento, arquitetura de mensagem e um brief criativo claro que orienta cada decisão com precisão.",
+    description: "Mapeamos o caminho mais rápido do problema à solução.",
   },
   {
+    icon: Code2,
     number: "03",
-    title: "Design",
-    description:
-      "Criamos cada pixel com intenção e precisão. Identidade visual, UI design, sistemas de motion — tudo construído sobre a base estratégica que desenvolvemos juntos.",
+    title: "Construção",
+    description: "Desenvolvemos com agilidade. Você acompanha cada etapa.",
   },
   {
+    icon: Rocket,
     number: "04",
-    title: "Lançamento",
-    description:
-      "Entregamos, iteramos e otimizamos para gerar impacto. Entrega de todos os assets, suporte pós-handoff e refinamentos pós-lançamento para garantir que tudo funcione no mundo real.",
+    title: "Entrega",
+    description: "No ar em dias. Pronto pra crescer com você.",
   },
 ];
 
@@ -36,54 +38,64 @@ export default function Process() {
     <section
       id="process"
       ref={ref as React.RefObject<HTMLElement>}
-      className="bg-secondary py-28 lg:py-36 border-t border-border"
+      className="relative overflow-hidden bg-secondary py-28 lg:py-36"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+
+      {/* Animated dotted background */}
+      <DottedSurface
+        speed={0.018}
+        particleSize={3}
+        waveAmplitude={32}
+        color="#4361ee"
+        opacity={0.35}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
         {/* Header */}
-        <div className={`reveal ${inView ? "visible" : ""} mb-20`}>
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-px bg-accent" />
-            <span className="text-accent text-[10px] uppercase tracking-[0.4em] font-medium">
-              Como Trabalhamos
-            </span>
+        <div className={`reveal ${inView ? "visible" : ""} mb-20 text-center`}>
+          <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 text-accent text-xs font-semibold px-4 py-2 rounded-full mb-6 tracking-wide">
+            Como funciona
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary leading-tight max-w-xl">
-            Um processo feito
-            <br />
-            <em className="text-accent">para a precisão.</em>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight">
+            Da ideia{" "}
+            <span className="text-accent">ao ar.</span>
           </h2>
         </div>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-0">
-          {steps.map(({ number, title, description }, i) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-0">
+          {steps.map(({ icon: Icon, number, title, description }, i) => (
             <div
               key={title}
-              className={`reveal reveal-delay-${i + 1} ${inView ? "visible" : ""} relative group`}
+              className={`reveal reveal-delay-${i + 1} ${inView ? "visible" : ""} relative group flex flex-col items-start lg:items-center lg:text-center px-0 lg:px-6`}
             >
-              {/* Connector line (desktop, not last) */}
+              {/* Connector line — desktop only */}
               {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-[2.35rem] left-1/2 w-full h-px bg-border z-0" />
+                <div className="hidden lg:block absolute top-7 left-[calc(50%+2.5rem)] right-[-calc(50%-2.5rem)] w-[calc(100%-5rem)] h-px bg-border z-0" />
               )}
 
-              <div className="relative z-10 p-8 lg:pr-10 border-t-2 border-border group-hover:border-accent transition-colors duration-300 lg:border-t-0 lg:border-l-2 lg:first:border-l-0 flex flex-col gap-6">
-                {/* Number circle */}
-                <div className="w-12 h-12 rounded-full border border-border group-hover:border-accent flex items-center justify-center transition-colors duration-300 bg-secondary">
-                  <span className="text-[11px] font-mono text-muted group-hover:text-accent transition-colors duration-300 tracking-wider font-bold">
-                    {number}
-                  </span>
-                </div>
-
-                {/* Content */}
-                <div>
-                  <h3 className="text-lg font-serif font-bold text-primary mb-3 group-hover:text-accent transition-colors duration-300">
-                    {title}
-                  </h3>
-                  <p className="text-muted text-sm leading-relaxed font-light">
-                    {description}
-                  </p>
-                </div>
+              {/* Icon box */}
+              <div className="relative z-10 w-14 h-14 rounded-2xl bg-card border border-border flex items-center justify-center mb-6 group-hover:border-accent/50 group-hover:bg-accent/10 transition-all duration-300">
+                <Icon
+                  size={20}
+                  className="text-muted group-hover:text-accent transition-colors duration-300"
+                />
               </div>
+
+              {/* Step number */}
+              <span className="text-[10px] font-mono text-accent/50 tracking-[0.3em] font-bold mb-2 uppercase">
+                {number}
+              </span>
+
+              {/* Title */}
+              <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors duration-300">
+                {title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-muted text-sm leading-relaxed">
+                {description}
+              </p>
             </div>
           ))}
         </div>
