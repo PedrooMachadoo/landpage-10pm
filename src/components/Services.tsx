@@ -1,6 +1,5 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
 
 const services = [
@@ -95,13 +94,6 @@ export default function Services() {
                 {beneficio}
               </p>
 
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-1.5 text-accent text-xs font-semibold mt-2 group-hover:gap-2.5 transition-all duration-200 cursor-pointer"
-              >
-                Saiba mais
-                <ArrowRight size={12} />
-              </a>
             </div>
           ))}
         </div>

@@ -7,33 +7,24 @@ import { ImageAccordion } from '@/components/ui/interactive-image-accordion';
 const cases = [
   {
     id: 1,
-    category: 'Plataforma SaaS',
-    title: 'Dashboard de gestão para rede de clínicas',
-    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop',
+    category: 'Plataforma Web · SaaS',
+    title: 'Plataforma de gestão e descoberta de eventos',
+    imageUrl: 'https://bboom.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flaptop-rubber.2a3e732c.png&w=3840&q=75',
+    link: 'https://bboom.app/',
   },
   {
     id: 2,
-    category: 'App Mobile',
-    title: 'App de agendamento e fidelidade',
-    imageUrl: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1200&auto=format&fit=crop',
+    category: 'Plataforma Web · EdTech',
+    title: 'EduProf — plataforma educacional para professores com IA',
+    imageUrl: '/cases/sapia.jpg',
+    link: 'https://skirr-revel-41816661.figma.site',
   },
   {
     id: 3,
-    category: 'E-commerce',
-    title: 'Loja digital do zero ao primeiro pedido',
-    imageUrl: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1200&auto=format&fit=crop',
-  },
-  {
-    id: 4,
-    category: 'Identidade Visual',
-    title: 'Marca e sistema visual para startup',
-    imageUrl: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1200&auto=format&fit=crop',
-  },
-  {
-    id: 5,
-    category: 'Sistema Web',
-    title: 'Automação de processos internos',
-    imageUrl: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1200&auto=format&fit=crop',
+    category: 'App Mobile',
+    title: 'Bboom — app de descoberta e compra de eventos',
+    imageUrl: 'https://bboom.app/assets/phone-hero.png',
+    link: 'https://bboom.app/',
   },
 ];
 
@@ -78,7 +69,7 @@ export default function Cases() {
 
           {/* Right — accordion */}
           <div className={`reveal-soft reveal-delay-2 ${inView ? 'visible' : ''} flex-1 min-w-0`}>
-            <ImageAccordion items={cases} defaultActive={2} />
+            <ImageAccordion items={cases} defaultActive={1} />
           </div>
 
         </div>

@@ -24,24 +24,6 @@ const members = [
     twitter: "#",
     linkedin: "#",
   },
-  {
-    name: "Lucas Andrade",
-    role: "Diretor de Motion",
-    bio: "Especialista em movimento que dá pulsação às marcas.",
-    img: "/team/richa.png",
-    fallback: "https://picsum.photos/seed/lucas-andrade/400/500",
-    twitter: "#",
-    linkedin: "#",
-  },
-  {
-    name: "Camila Reis",
-    role: "Estrategista de Marca",
-    bio: "Transforma posicionamento vago em clareza afiada.",
-    img: "/team/richa.png",
-    fallback: "https://picsum.photos/seed/camila-reis/400/500",
-    twitter: "#",
-    linkedin: "#",
-  },
 ];
 
 const glassBase = {
@@ -134,14 +116,15 @@ export default function Team() {
             O Time
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight mb-4">
-            Nosso time
+            O time que faz{" "}
+            <span className="text-accent">acontecer.</span>
           </h2>
           <p className="text-muted text-base">
-            Especialistas que criaram produtos para milhões de usuários
+            Cada entrega tem um rosto. Conheça quem está do seu lado.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
           {members.map((member, i) => (
             <MemberCard key={member.name} {...member} index={i} inView={inView} />
           ))}
