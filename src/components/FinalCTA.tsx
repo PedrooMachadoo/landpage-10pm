@@ -27,17 +27,16 @@ export default function FinalCTA() {
             {/* Eyebrow badge */}
             <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 text-accent text-xs font-semibold px-4 py-2 rounded-full tracking-wide">
               <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-              Vamos Trabalhar Juntos
+              Comece agora
             </div>
 
             <h2 className="text-5xl sm:text-6xl md:text-7xl font-bold text-primary leading-tight tracking-tight max-w-3xl">
-              Pronto para criar algo{" "}
-              <span className="text-accent">inesquecível?</span>
+              Chega de{" "}
+              <span className="text-accent">improvisar.</span>
             </h2>
 
             <p className="text-muted text-base max-w-md leading-relaxed">
-              Conte sobre o seu projeto. Retornamos em até 24 horas
-              para iniciar a conversa.
+              Comece hoje. Sem burocracia, sem surpresa.
             </p>
 
             {/* CTA buttons */}
@@ -46,7 +45,7 @@ export default function FinalCTA() {
                 href="mailto:hello@10pm.studio"
                 className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-light text-white text-sm font-semibold px-8 py-4 rounded-full transition-all duration-300 group cursor-pointer"
               >
-                Iniciar Projeto
+                Quero começar agora
                 <ArrowRight
                   size={15}
                   className="group-hover:translate-x-0.5 transition-transform duration-200"
@@ -56,9 +55,12 @@ export default function FinalCTA() {
                 href="mailto:hello@10pm.studio"
                 className="inline-flex items-center justify-center gap-2 border border-border hover:border-accent/50 text-primary text-sm font-medium px-8 py-4 rounded-full transition-all duration-300 cursor-pointer hover:bg-white/5"
               >
-                hello@10pm.studio
+                Falar com especialista
               </a>
             </div>
+            <p className="text-muted/60 text-xs mt-2">
+              Sem compromisso. Fale com um especialista primeiro.
+            </p>
           </div>
         </div>
       </section>
@@ -72,8 +74,8 @@ export default function FinalCTA() {
               10<span className="text-accent">PM</span>
             </a>
             <p className="text-muted text-sm leading-relaxed max-w-xs">
-              Estúdio criativo premium que desenvolve marcas e experiências
-              digitais para empresas que se recusam a ser comuns.
+              A 10pm conecta MEIs e pequenas empresas às melhores soluções
+              digitais do mercado. Ágil, acessível e pronto pra rodar.
             </p>
             {/* Socials */}
             <div className="flex items-center gap-3">
@@ -122,7 +124,7 @@ export default function FinalCTA() {
             © {new Date().getFullYear()} 10 PM Studio. Todos os direitos reservados.
           </p>
           <p className="text-muted/50 text-[11px]">
-            Criado com intenção. Construído à noite.
+            Feito para quem não tem tempo a perder.
           </p>
         </div>
       </div>

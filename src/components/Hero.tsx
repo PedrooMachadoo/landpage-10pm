@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown, Timer, Wallet, Layers } from "lucide-react";
 import IsoLevelWarp from "@/components/ui/isometric-wave-grid-background";
 
 const navLinks = [
@@ -12,11 +12,6 @@ const navLinks = [
   { label: "Contato", href: "#contact" },
 ];
 
-const stats = [
-  { value: "8+", label: "Anos" },
-  { value: "120+", label: "Marcas" },
-  { value: "94%", label: "Retenção" },
-];
 
 export default function Hero() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -103,7 +98,7 @@ export default function Hero() {
       </header>
 
       {/* ─── Hero ─── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-black">
+      <section className="relative overflow-hidden bg-black min-h-screen flex flex-col" style={{ backgroundColor: '#000000' }}>
         {/* Wave grid background */}
         <IsoLevelWarp
           color="67, 97, 238"
@@ -111,58 +106,71 @@ export default function Hero() {
           density={45}
         />
 
-        {/* Content — single column, centered */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 pt-36 pb-24">
-          <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
-            {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 text-accent text-xs font-semibold px-4 py-2 rounded-full mb-8 tracking-wide">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-              Estúdio Criativo — Est. 2016
-            </div>
+        {/* Hero content — centered vertically */}
+        <div className="relative z-10 flex-1 flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-6 lg:px-10 pt-32 pb-8">
+          <div className="flex flex-col items-center text-center max-w-3xl">
 
-            {/* Headline */}
             <h1 className="text-5xl sm:text-6xl lg:text-[72px] font-bold leading-[1.05] tracking-tight text-primary mb-6">
-              Criamos Marcas
-              <br />
-              <span className="text-accent">Que Não</span>
-              <br />
-              Dormem.
+              Tecnologia de ponta.{" "}
+              <span className="text-accent">Preço que faz sentido.</span>
             </h1>
 
-            <p className="text-base text-muted leading-relaxed mb-10 max-w-lg font-normal">
-              Estúdio criativo premium que desenvolve identidades de marca,
-              experiências digitais e design de alto impacto para empresas
-              que se recusam a ser comuns.
+            <p className="text-base text-muted leading-relaxed mb-10 max-w-md font-normal">
+              Soluções digitais para quem tem um negócio pra fazer crescer.
             </p>
 
-            {/* CTA buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-16">
+            <div className="flex flex-col sm:flex-row gap-3">
               <a
-                href="#work"
+                href="#services"
                 className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-light text-white text-sm font-semibold px-7 py-4 rounded-full transition-all duration-300 group cursor-pointer"
               >
-                Ver Nossos Trabalhos
+                Quero conhecer as soluções
                 <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform duration-200" />
               </a>
               <a
-                href="#services"
+                href="#contact"
                 className="inline-flex items-center justify-center gap-2 border border-border hover:border-accent/50 text-primary text-sm font-medium px-7 py-4 rounded-full transition-all duration-300 cursor-pointer hover:bg-white/5"
               >
-                Nossos Serviços
+                Falar com especialista
               </a>
             </div>
 
-            {/* Stats */}
-            <div className="flex items-center justify-center gap-10 pt-8 border-t border-border/50 w-full">
-              {stats.map(({ value, label }) => (
-                <div key={label} className="text-center">
-                  <p className="text-2xl font-bold text-primary">{value}</p>
-                  <p className="text-xs text-muted mt-0.5 font-medium">{label}</p>
-                </div>
-              ))}
+            {/* Scroll hint */}
+            <div className="mt-14 flex flex-col items-center gap-1.5 opacity-25">
+              <ChevronDown size={18} className="text-primary animate-bounce" />
             </div>
           </div>
         </div>
+
+        {/* ── Preview cards — peek da próxima seção ── */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 pb-0">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              { icon: Timer, badge: "Ágil", title: "Você lança enquanto a concorrência ainda planeja." },
+              { icon: Wallet, badge: "Acessível", title: "Time completo pelo preço de um freelancer." },
+              { icon: Layers, badge: "Completo", title: "Da ideia ao produto. Sem terceirizar partes." },
+            ].map(({ icon: Icon, badge, title }) => (
+              <div
+                key={badge}
+                className="bg-card/50 backdrop-blur-sm border border-border/40 rounded-2xl p-6 flex gap-4 items-start"
+              >
+                <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center flex-shrink-0">
+                  <Icon size={16} className="text-accent" />
+                </div>
+                <div>
+                  <span className="text-[10px] uppercase tracking-[0.25em] font-semibold text-accent/60 block mb-1">{badge}</span>
+                  <p className="text-sm font-semibold text-primary leading-snug">{title}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom fade — cards dissolvem no escuro */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none z-20"
+          style={{ background: 'linear-gradient(to top, #000000 0%, transparent 100%)' }}
+        />
       </section>
     </>
   );
