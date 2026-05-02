@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowRight, ChevronDown, Timer, Wallet, Layers } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import IsoLevelWarp from "@/components/ui/isometric-wave-grid-background";
 
 const navLinks = [
@@ -142,31 +142,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ── Preview cards — peek da próxima seção ── */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 pb-0">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[
-              { icon: Timer, badge: "Ágil", title: "Você lança enquanto a concorrência ainda planeja." },
-              { icon: Wallet, badge: "Acessível", title: "Time completo pelo preço de um freelancer." },
-              { icon: Layers, badge: "Completo", title: "Da ideia ao produto. Sem terceirizar partes." },
-            ].map(({ icon: Icon, badge, title }) => (
-              <div
-                key={badge}
-                className="bg-card/50 backdrop-blur-sm border border-border/40 rounded-2xl p-6 flex gap-4 items-start"
-              >
-                <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center flex-shrink-0">
-                  <Icon size={16} className="text-accent" />
-                </div>
-                <div>
-                  <span className="text-[10px] uppercase tracking-[0.25em] font-semibold text-accent/60 block mb-1">{badge}</span>
-                  <p className="text-sm font-semibold text-primary leading-snug">{title}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Bottom fade — cards dissolvem no escuro */}
+        {/* Bottom fade */}
         <div
           className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none z-20"
           style={{ background: 'linear-gradient(to top, #000000 0%, transparent 100%)' }}

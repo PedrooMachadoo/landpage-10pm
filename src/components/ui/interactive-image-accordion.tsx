@@ -1,12 +1,14 @@
 'use client';
 
 import React, { useState } from 'react';
+import { ArrowUpRight } from 'lucide-react';
 
 interface AccordionItem {
   id: number;
   title: string;
   category: string;
   imageUrl: string;
+  link?: string;
 }
 
 interface AccordionItemProps {
@@ -16,14 +18,22 @@ interface AccordionItemProps {
 }
 
 const AccordionPanel = ({ item, isActive, onMouseEnter }: AccordionItemProps) => {
+  const handleClick = () => {
+    if (isActive && item.link) {
+      window.open(item.link, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
     <div
       className={`
-        relative h-[480px] rounded-2xl overflow-hidden cursor-pointer flex-shrink-0
+        relative h-[480px] rounded-2xl overflow-hidden flex-shrink-0
         transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
         ${isActive ? 'w-[380px]' : 'w-[64px]'}
+        ${isActive && item.link ? 'cursor-pointer' : 'cursor-default'}
       `}
       onMouseEnter={onMouseEnter}
+      onClick={handleClick}
     >
       {/* Background image */}
       <img
@@ -33,33 +43,59 @@ const AccordionPanel = ({ item, isActive, onMouseEnter }: AccordionItemProps) =>
         style={{ transform: isActive ? 'scale(1.03)' : 'scale(1)' }}
       />
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+      {/* Gradient overlay — stronger at bottom for legibility */}
+      <div className="absolute inset-0" style={{
+        background: isActive
+          ? 'linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.1) 100%)'
+          : 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 100%)',
+      }} />
 
       {/* Accent line at top when active */}
       <div
-        className={`absolute top-0 left-0 right-0 h-0.5 bg-accent transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute top-0 left-0 right-0 h-0.5 transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0'}`}
         style={{ backgroundColor: '#4361ee' }}
       />
 
-      {/* Caption */}
-      <div
-        className={`absolute transition-all duration-500 text-white ${
-          isActive
-            ? 'bottom-6 left-6 right-6 rotate-0 opacity-100'
-            : 'bottom-20 left-1/2 -translate-x-1/2 rotate-90 whitespace-nowrap opacity-70'
-        }`}
-      >
-        {isActive && (
+      {/* Inactive label — horizontal, centered, no rotation */}
+      {!isActive && (
+        <div className="absolute inset-0 flex items-end justify-center pb-5 px-2">
+          <p
+            className="text-white text-[11px] font-semibold leading-tight text-center"
+            style={{
+              writingMode: 'vertical-rl',
+              textOrientation: 'mixed',
+              transform: 'rotate(180deg)',
+              letterSpacing: '0.05em',
+              textShadow: '0 1px 4px rgba(0,0,0,0.8)',
+            }}
+          >
+            {item.title}
+          </p>
+        </div>
+      )}
+
+      {/* Active caption */}
+      {isActive && (
+        <div className="absolute bottom-0 left-0 right-0 p-6">
           <span
-            className="inline-block text-[10px] uppercase tracking-[0.25em] font-semibold mb-2 opacity-70"
-            style={{ color: '#6c82f5' }}
+            className="inline-block text-[10px] uppercase tracking-[0.25em] font-bold mb-2"
+            style={{ color: '#818cf8' }}
           >
             {item.category}
           </span>
-        )}
-        <p className="text-base font-bold leading-snug">{item.title}</p>
-      </div>
+          <div className="flex items-end justify-between gap-3">
+            <p className="text-white text-base font-bold leading-snug" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
+              {item.title}
+            </p>
+            {item.link && (
+              <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center"
+                style={{ background: 'rgba(255,255,255,0.18)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.2)' }}>
+                <ArrowUpRight size={14} className="text-white" />
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,6 +1,5 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
 
 const services = [
@@ -66,7 +65,22 @@ export default function Services() {
           {services.map(({ area, dor, beneficio }, i) => (
             <div
               key={area}
-              className={`reveal reveal-delay-${(i % 3) + 1} ${inView ? "visible" : ""} group bg-card border border-border rounded-2xl p-8 hover:border-accent/30 hover:bg-card-hover transition-all duration-300 flex flex-col gap-4`}
+              className={`reveal reveal-delay-${(i % 3) + 1} ${inView ? "visible" : ""} group rounded-2xl p-8 flex flex-col gap-4`}
+              style={{
+                background: "linear-gradient(145deg, rgba(255,255,255,0.065) 0%, rgba(255,255,255,0.025) 45%, rgba(67,97,238,0.04) 100%)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+                border: "1px solid rgba(255,255,255,0.09)",
+                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.07), 0 2px 6px rgba(0,0,0,0.1), 0 8px 20px rgba(0,0,0,0.08)",
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLDivElement).style.border = "1px solid rgba(67,97,238,0.28)";
+                (e.currentTarget as HTMLDivElement).style.boxShadow = "inset 0 1px 0 rgba(255,255,255,0.09), 0 2px 6px rgba(0,0,0,0.1), 0 8px 28px rgba(67,97,238,0.1)";
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLDivElement).style.border = "1px solid rgba(255,255,255,0.09)";
+                (e.currentTarget as HTMLDivElement).style.boxShadow = "inset 0 1px 0 rgba(255,255,255,0.07), 0 2px 6px rgba(0,0,0,0.1), 0 8px 20px rgba(0,0,0,0.08)";
+              }}
             >
               <span className="text-[10px] uppercase tracking-[0.25em] font-semibold text-accent/70">
                 {area}
@@ -80,13 +94,6 @@ export default function Services() {
                 {beneficio}
               </p>
 
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-1.5 text-accent text-xs font-semibold mt-2 group-hover:gap-2.5 transition-all duration-200 cursor-pointer"
-              >
-                Saiba mais
-                <ArrowRight size={12} />
-              </a>
             </div>
           ))}
         </div>

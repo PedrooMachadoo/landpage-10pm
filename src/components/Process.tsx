@@ -75,7 +75,16 @@ export default function Process() {
               )}
 
               {/* Icon box */}
-              <div className="relative z-10 w-14 h-14 rounded-2xl bg-card border border-border flex items-center justify-center mb-6 group-hover:border-accent/50 group-hover:bg-accent/10 transition-all duration-300">
+              <div
+                className="relative z-10 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"
+                style={{
+                  background: "linear-gradient(145deg, rgba(255,255,255,0.065) 0%, rgba(255,255,255,0.025) 45%, rgba(67,97,238,0.04) 100%)",
+                  backdropFilter: "blur(12px)",
+                  WebkitBackdropFilter: "blur(12px)",
+                  border: "1px solid rgba(255,255,255,0.09)",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.07), 0 2px 8px rgba(0,0,0,0.12)",
+                }}
+              >
                 <Icon
                   size={20}
                   className="text-muted group-hover:text-accent transition-colors duration-300"
