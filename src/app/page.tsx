@@ -3,7 +3,7 @@ import CaseStudy from "@/components/CaseStudy";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Cases from "@/components/Cases";
-import Testimonials from "@/components/Testimonials";
+import TrustedBy from "@/components/TrustedBy";
 import FAQ from "@/components/FAQ";
 import Team from "@/components/Team";
 import FinalCTA from "@/components/FinalCTA";
@@ -16,7 +16,7 @@ export default function Home() {
       <Services />
       <Process />
       <Cases />
-      <Testimonials />
+      <TrustedBy />
       <FAQ />
       <Team />
       <FinalCTA />
