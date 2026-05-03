@@ -1,16 +1,16 @@
 "use client";
 
 const clients = [
-  "Meridian",
-  "Volta",
-  "Axiom",
-  "Noir Collective",
-  "Stratum",
-  "Helios Labs",
-  "Crest Capital",
-  "Drift Studio",
-  "Luminary",
-  "Forge & Co.",
+  "TechStart",
+  "NovaMEI",
+  "Fluxo Digital",
+  "Conta Fácil",
+  "Venda Mais",
+  "GestorPro",
+  "Crédito Ágil",
+  "Fiscal Online",
+  "Micro Capital",
+  "Empreenda+",
 ];
 
 function ClientLogo({ name }: { name: string }) {
@@ -30,7 +30,7 @@ export default function Clients() {
     <section className="bg-secondary border-t border-b border-border py-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 mb-10 text-center">
         <p className="text-[10px] uppercase tracking-[0.4em] text-muted font-medium">
-          Confiado por empresas inovadoras
+          MEIs e pequenas empresas que já usam a 10pm
         </p>
       </div>
 
