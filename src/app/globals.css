@@ -108,7 +108,94 @@ body {
   box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.7);
 }
 
+/* ─── Hero ambient effects ─── */
+
+/* 10AM — gentle wind/breath: subtle horizontal drift + breathing scale */
+@keyframes hero-am-wind {
+  0%, 100% { transform: scale(1) translate(0, 0); }
+  25% { transform: scale(1.012) translate(-4px, -2px); }
+  50% { transform: scale(1.018) translate(2px, -4px); }
+  75% { transform: scale(1.01) translate(4px, 1px); }
+}
+.hero-am-wind {
+  animation: hero-am-wind 16s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* 10AM — drifting dust particles */
+@keyframes hero-am-particle {
+  0%   { transform: translate(0, 0) scale(0.5); opacity: 0; }
+  10%  { opacity: 0.6; transform: translate(8px, -15px) scale(1); }
+  50%  { opacity: 0.9; transform: translate(40px, -80px) scale(1.1); }
+  90%  { opacity: 0.3; transform: translate(70px, -160px) scale(0.8); }
+  100% { transform: translate(85px, -200px) scale(0.4); opacity: 0; }
+}
+.hero-am-particle {
+  animation: hero-am-particle 12s linear infinite;
+  will-change: transform, opacity;
+}
+
+/* 10AM — soft sun-ray sweep */
+@keyframes hero-am-sunray {
+  0%, 100% { transform: translate(-15%, -10%); opacity: 0.18; }
+  50%      { transform: translate(15%, 10%);  opacity: 0.32; }
+}
+.hero-am-sunray {
+  animation: hero-am-sunray 22s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* 10PM — neon-style brightness flicker (irregular timing) */
+@keyframes hero-pm-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    filter: brightness(1) contrast(1);
+  }
+  20%, 24%, 55% {
+    filter: brightness(1.08) contrast(1.05);
+  }
+  22% {
+    filter: brightness(0.88) contrast(1.12);
+  }
+  62% {
+    filter: brightness(1.04) contrast(1.02);
+  }
+  63%, 64% {
+    filter: brightness(0.94) contrast(1.08);
+  }
+}
+.hero-pm-flicker {
+  animation: hero-pm-flicker 5.5s ease-in-out infinite;
+  will-change: filter;
+}
+
+/* 10PM — pulsing neon glow (breath) */
+@keyframes hero-pm-glow {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(1.08); }
+}
+.hero-pm-glow {
+  animation: hero-pm-glow 4.8s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+/* 10PM — quick spark (rare flash) */
+@keyframes hero-pm-spark {
+  0%, 92%, 94%, 100% { opacity: 0; }
+  93%                { opacity: 0.7; }
+}
+.hero-pm-spark {
+  animation: hero-pm-spark 7s ease-in-out infinite;
+  will-change: opacity;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .animate-marquee { animation: none; }
+  .hero-am-wind,
+  .hero-am-particle,
+  .hero-am-sunray,
+  .hero-pm-flicker,
+  .hero-pm-glow,
+  .hero-pm-spark { animation: none; }
 }

@@ -7,11 +7,11 @@ import { useInView } from "@/hooks/useInView";
 
 const members = [
   {
-    name: "Rafael Moura",
-    role: "Diretor Criativo",
-    bio: "15 anos moldando narrativas de marca para empresas globais.",
-    img: "/team/richa.png",
-    fallback: "https://picsum.photos/seed/rafael-moura/400/500",
+    name: "Pedro Machado",
+    role: "Fundador",
+    bio: "Tira ideia do papel e coloca no ar antes do café esfriar.",
+    img: "/team/pedro.png",
+    fallback: "https://picsum.photos/seed/pedro-machado/400/500",
     twitter: "#",
     linkedin: "#",
   },
